@@ -11,7 +11,8 @@
 
 class Configure()
 {
-private:
+private
+WiFiServer server(80);
 char* _ssid;
 char* _pass;
 

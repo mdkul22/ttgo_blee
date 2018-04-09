@@ -13,7 +13,6 @@ Configure::Configure(char* ssid, char* pass)
 {
 _ssid = ssid;
 _pass = pass;
-WiFiServer server(80);
 Serial.begin(115200);
 delay(10);
 }
@@ -27,5 +26,23 @@ void Configure::beginConnection()
   {
     delay(500);
     Serial.print(".");
+  }
+  Serial.println();
+  Serial.println("WiFi connected.");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+  server.begin();
+}
+
+void receiveConfig()
+{
+  WiFiClient client = server.available();
+  if(client)
+  {
+    Serial.println("New Client.");
+    String currentLine = "";
+    while(client.connected()) {
+      if(cli)
+    }
   }
 }
